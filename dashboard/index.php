@@ -72,7 +72,7 @@ $data = mysqli_fetch_array($query);
                     <table class="table">
                         <thead>
                             <tr>
-                                <td><strong> Enkripsi</strong></td>
+                                <td><i class="fa fa-lock"></i><strong> Enkripsi</strong></td>
                                 <td>
                                     <p> <b><?php echo $dataencrypt['totalencrypt']; ?></b></p>
                                 </td>
@@ -80,7 +80,7 @@ $data = mysqli_fetch_array($query);
                                 </td>
                             </tr>
                             <tr>
-                                <td><strong> Deskripsi</strong></td>
+                                <td><i class="fa fa-unlock"><strong> Deskripsi</strong></td>
                                 <td>
                                     <p> <b><?php echo $datadecrypt['totaldecrypt']; ?></b></p>
                                 </td>
