@@ -1,39 +1,39 @@
 <?php
 session_start();
-include "../config.php";   
-include "AES.php"; 
+include "../config.php";
+include "AES.php";
 
 if (isset($_POST['encrypt_now'])) {
-  $user 		 = $_SESSION['username'];
-  $key		   = mysqli_escape_string($connect,substr(md5($_POST["pwdfile"]), 0,16));
-  $deskripsi = mysqli_escape_string($connect,$_POST['desc']);
+  $user      = $_SESSION['username'];
+  $key       = mysqli_escape_string($connect, substr(md5($_POST["pwdfile"]), 0, 16));
+  $deskripsi = mysqli_escape_string($connect, $_POST['desc']);
 
   $file_tmpname   = $_FILES['file']['tmp_name'];
-      //untuk nama file url
-  $file           = rand(1000,100000)."-".$_FILES['file']['name'];
+  //untuk nama file url
+  $file           = rand(1000, 100000) . "-" . $_FILES['file']['name'];
   $new_file_name  = strtolower($file);
-  $final_file     = str_replace(' ','-',$new_file_name);
-      //untuk nama file
-  $filename       = rand(1000,100000)."-".pathinfo($_FILES['file']['name'], PATHINFO_FILENAME);
+  $final_file     = str_replace(' ', '-', $new_file_name);
+  //untuk nama file
+  $filename       = rand(1000, 100000) . "-" . pathinfo($_FILES['file']['name'], PATHINFO_FILENAME);
   $new_filename  = strtolower($filename);
-  $finalfile     = str_replace(' ','-',$new_filename);
+  $finalfile     = str_replace(' ', '-', $new_filename);
   $size           = filesize($file_tmpname);
-  $size2          = (filesize($file_tmpname))/1024;
-  $info           = pathinfo($final_file );
-  $file_source		= fopen($file_tmpname, 'rb');
+  $size2          = (filesize($file_tmpname)) / 1024;
+  $info           = pathinfo($final_file);
+  $file_source    = fopen($file_tmpname, 'rb');
   $ext            = $info["extension"];
 
-  if( $ext=="jpg" || $ext=="JPG" || $ext=="PNG" || $ext=="png"){
-  }else{
-    echo("<script language='javascript'>
+  if ($ext == "docx" || $ext == "doc" || $ext == "txt" || $ext == "pdf" || $ext == "xls" || $ext == "xlsx" || $ext == "ppt" || $ext == "pptx") {
+  } else {
+    echo ("<script language='javascript'>
       window.location.href='encrypt.php';
       window.alert('Maaf, file yang bisa dienkrip hanya jpg dan png.');
       </script>");
     exit();
   }
 
-  if($size2>3084){
-    echo("<script language='javascript'>
+  if ($size2 > 3084) {
+    echo ("<script language='javascript'>
       window.location.href='encrypt.php';
       window.alert('Maaf, file tidak bisa lebih besar dari 2 MB.');
       </script>");
@@ -41,48 +41,48 @@ if (isset($_POST['encrypt_now'])) {
   }
 
   $sql1   = "INSERT INTO file VALUES ('', '$user', '$final_file', '$finalfile.rda', '', '$size2', '$key', now(), '1', '$deskripsi')";
-  $query1  = mysqli_query($connect,$sql1) or die(mysqli_error($connect));
+  $query1  = mysqli_query($connect, $sql1) or die(mysqli_error($connect));
 
   $sql2   = "select * from file where file_url =''";
-  $query2  = mysqli_query($connect,$sql2) or die(mysqli_error($connect));
+  $query2  = mysqli_query($connect, $sql2) or die(mysqli_error($connect));
 
-  $url   = $finalfile.".rda";
+  $url   = $finalfile . ".rda";
   $file_url = "file_encrypt/$url";
 
   $sql3   = "UPDATE file SET file_url ='$file_url' WHERE file_url=''";
-  $query3  = mysqli_query($connect,$sql3) or die(mysqli_error($connect));
+  $query3  = mysqli_query($connect, $sql3) or die(mysqli_error($connect));
 
-  $file_output		= fopen($file_url, 'wb');
+  $file_output    = fopen($file_url, 'wb');
 
-  $mod    = $size%16;
-  if($mod==0){
+  $mod    = $size % 16;
+  if ($mod == 0) {
     $banyak = $size / 16;
-  }else{
+  } else {
     $banyak = ($size - $mod) / 16;
-    $banyak = $banyak+1;
+    $banyak = $banyak + 1;
   }
 
-  if(is_uploaded_file($file_tmpname)){
+  if (is_uploaded_file($file_tmpname)) {
     ini_set('max_execution_time', -1);
     ini_set('memory_limit', -1);
     $aes = new AES($key);
 
-    for($bawah=0;$bawah<$banyak;$bawah++){
-     $data    = fread($file_source, 16);
-     $cipher  = $aes->encrypt($data);
-     fwrite($file_output, $cipher);
-   }
-   fclose($file_source);
-   fclose($file_output);
+    for ($bawah = 0; $bawah < $banyak; $bawah++) {
+      $data    = fread($file_source, 16);
+      $cipher  = $aes->encrypt($data);
+      fwrite($file_output, $cipher);
+    }
+    fclose($file_source);
+    fclose($file_output);
 
-   echo("<script language='javascript'>
+    echo ("<script language='javascript'>
     window.location.href='decrypt.php';
     window.alert('Hasil Radiologi Berhasil di Enkripsi');
     </script>");
- }else{
-   echo("<script language='javascript'>
+  } else {
+    echo ("<script language='javascript'>
     window.location.href='encrypt.php';
     window.alert('Encrypt file mengalami masalah..');
     </script>");
- }
+  }
 }
