@@ -136,7 +136,7 @@ body {
         <img src="assets/gambar/LogoBNG.png" alt="">
     </div>
     <div class="text-center mt-4 name">
-        Login
+
     </div>
     <form class="login-form" action="auth.php" method="post"><img src="" alt="" srcset="">
 

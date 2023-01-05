@@ -21,12 +21,11 @@
                                 <label class="col-lg-2 control-label" for="inputPassword"> Tanggal</label>
                                 <div class="col-lg-4">
                                     <input class="form-control" id="inputTgl" type="text" placeholder="Tanggal"
-                                        name="datenow" value="<?php echo date("Y-m-d"); ?>" readonly>
+                                        name="datenow" value="<?php echo date("Y-m-d H:m:s"); ?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-12 control-label" for="inputFile">File Enkripsi Hasil Radiologi
-                                    dengan format jpg / png</label>
+                                <label class="col-lg-12 control-label" for="inputFile">File Enkripsi </label>
                                 <div class="col-lg-4">
                                     <input class="form-control" id="inputFile" placeholder="Input File" type="file"
                                         name="file" required>

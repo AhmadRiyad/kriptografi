@@ -1,4 +1,5 @@
 <?php
+include "../config.php";
 session_start();
 $file  = $_SESSION["download"];
 header("Content-Disposition: attachment; filename=\"" . basename($file) . "\"");

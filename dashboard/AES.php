@@ -139,8 +139,8 @@
 				$this->Nk = strlen($z)/4;
 				
 				# Validasi untuk memfilter panjang key
-				if ($this->Nk != 4 && $this->Nk != 6 && $this->Nk != 8)
-                    die("Key is " . ($this->Nk*32) . " bits long. *not* 128, 192, or 256.");
+				if ($this->Nk != 4 )
+                    die("Key is " . ($this->Nk*32) . " bits long. 128");
 				
 				# Jumlah Putaran / looping pada proses enkripsi & dekripsi
 				$this->Nr = $this->Nk + $this->Nb + 2;
