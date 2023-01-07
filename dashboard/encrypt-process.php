@@ -32,10 +32,10 @@ if (isset($_POST['encrypt_now'])) {
     exit();
   }
 
-  if ($size2 > 3084) {
+  if ($size2 > 25600) {
     echo ("<script language='javascript'>
       window.location.href='encrypt.php';
-      window.alert('Maaf, file tidak bisa lebih besar dari 2 MB.');
+      window.alert('Maaf, file tidak bisa lebih besar dari 25 MB.');
       </script>");
     exit();
   }
