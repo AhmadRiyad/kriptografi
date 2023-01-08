@@ -11,15 +11,16 @@
                     </ul>
                 </div>
             </div>
-            <table id="file" class="table striped">
+            <div class="table-responsive">
+            <table id="file" class="table striped dataTable">
                 <thead class="bg-primary">
                     <tr>
-                        <td width="5%"><strong>No</strong></td>
-                        <td width="20%"><strong>Nama Hasil</strong></td>
-                        <td width="20%"><strong>Enkripsi</strong></td>
-                        <td width="20%"><strong>Lokasi Enkripsi</strong></td>
-                        <td width="15%"><strong>Ukuran Hasil</strong></td>
-                        <td width="10%"><strong>Deskripsi</strong></td>
+                        <th style="vertical-align:middle;" width="5%" class="text-center">No</th>
+                        <th style="vertical-align:middle;" width="20%">Nama Hasil</th>
+                        <th style="vertical-align:middle;" width="20%">Enkripsi</th>
+                        <th style="vertical-align:middle;" width="20%">Lokasi Enkripsi</th>
+                        <th style="vertical-align:middle;" width="15%">Ukuran Hasil</th>
+                        <th style="vertical-align:middle;" width="10%">Deskripsi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,21 +29,20 @@
               $query = mysqli_query($connect,"SELECT * FROM file where status ='1' order by tgl_upload desc");
               while ($data = mysqli_fetch_array($query)) { ?>
                     <tr>
-                        <td><?php echo $i; ?></td>
-                        <td><?php echo $data['file_name_source']; ?></td>
-                        <td><?php echo $data['file_name_finish']; ?></td>
-                        <td><?php echo $data['file_url']; ?></td>
-                        <td><?php echo $data['file_size']; ?> Kilobyte (KB)</td>
-
-                        <td>
+                        <td style="vertical-align:middle;"><?php echo $i; ?></td>
+                        <td style="vertical-align:middle;"><?php echo $data['file_name_source']; ?></td>
+                        <td style="vertical-align:middle;"><?php echo $data['file_name_finish']; ?></td>
+                        <td style="vertical-align:middle;"><?php echo $data['file_url']; ?></td>
+                        <td style="vertical-align:middle;"><?php echo $data['file_size']; ?> Kilobyte (KB)</td>
+                        <td style="vertical-align:middle;">
                             <?php
                     $a = $data['id_file'];
                     if ($data['status'] == 1) {
-                      echo '<a href="decrypt-file.php?id_file='.$a.'" class="btn btn-warning">Dekripsi Hasil</a>';
+                      echo '<a href="decrypt-file.php?id_file='.$a.'" class="btn btn-warning btn-sm">Dekripsi Hasil</a>';
                     }elseif ($data['status'] == 2) {
-                      echo '<a href="encrypt.php" class="btn btn-success">Enkripsi Hasil</a>';
+                      echo '<a href="encrypt.php" class="btn btn-success btn-sm">Enkripsi Hasil</a>';
                     }else {
-                      echo '<a href="decrypt.php" class="btn btn-danger">Data Tidak Diketahui</a>';
+                      echo '<a href="decrypt.php" class="btn btn-danger btn-sm">Data Tidak Diketahui</a>';
                     }
                     ?>
 
@@ -54,7 +54,7 @@
 
                 </tbody>
             </table>
-
+            </div>
 
         </div>
     </div>

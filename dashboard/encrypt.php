@@ -1,5 +1,7 @@
-<?php include('../config.php');?>
-<?php include 'template/header.php'; ?>
+<?php 
+include('../config.php');
+include 'template/header.php'; 
+?>
 
 <main role="main" class="container">
     <div class="row">
@@ -21,7 +23,7 @@
                                 <label class="col-lg-2 control-label" for="inputPassword"> Tanggal</label>
                                 <div class="col-lg-4">
                                     <input class="form-control" id="inputTgl" type="text" placeholder="Tanggal"
-                                        name="datenow" value="<?php echo date("Y-m-d H:m:s"); ?>" readonly>
+                                        name="datenow" value="<?php echo date("Y-m-d H:i:s"); ?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -35,7 +37,8 @@
                                 <label class="col-lg-2 control-label" for="inputPassword">Password</label>
                                 <div class="col-lg-4">
                                     <input class="form-control" id="inputPassword" type="password"
-                                        placeholder="Password / Kunci Enkripsi " name="pwdfile" required>
+                                        placeholder="Password / Kunci Enkripsi " minlength="16" maxlength="16" name="pwdfile" required>
+                                    <span class="text-danger" style="font-size:13px;">Ketentuan: password minimal 16 karakter atau lebih.</span>
                                 </div>
                             </div>
                             <div class="form-group">

@@ -11,17 +11,17 @@
             </div>
         </div>
         <div class="table-responsive">
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped dataTable">
                 <thead class="bg-primary">
                     <tr>
-                        <td><strong>Id File</strong></td>
-                        <td><strong>User</strong></td>
-                        <td><strong>Nama File Asli</strong></td>
-                        <td><strong>File Enkripsi</strong></td>
-                        <td><strong>Ukuran File</strong></td>
-                        <td><strong>Keterangan</strong></td>
-                        <td><strong>Status</strong></td>
-                        <td><strong>Delete</strong></td>
+                        <th style="vertical-align:middle;" class="text-center">Id File</th>
+                        <th style="vertical-align:middle;">User</th>
+                        <th style="vertical-align:middle;">Nama File Asli</th>
+                        <th style="vertical-align:middle;">File Enkripsi</th>
+                        <th style="vertical-align:middle;">Ukuran File</th>
+                        <th style="vertical-align:middle;">Keterangan</th>
+                        <th style="vertical-align:middle;">Status</th>
+                        <th style="vertical-align:middle;">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,17 +30,17 @@
               $query = mysqli_query($connect,"SELECT * FROM file");
               while ($data = mysqli_fetch_array($query)) { ?>
                     <tr>
-                        <td><?php echo $no++; ?></td>
-                        <td><?php echo $data['username']; ?></td>
-                        <td><?php echo $data['file_name_source']; ?></td>
+                        <td class="text-center" style="vertical-align:middle;"><?php echo $no++; ?></td>
+                        <td style="vertical-align:middle;"><?php echo $data['username']; ?></td>
+                        <td style="vertical-align:middle;"><?php echo $data['file_name_source']; ?></td>
                         <?php $namabrks = $data['file_name_source']; ?>
-                        <td><?php echo $data['file_name_finish']; ?></td>
-                        <td><?php echo $data['file_size']; ?> KB</td>
-                        <td><?php echo $data['keterangan']; ?></td>
-                        <td><?php if ($data['status'] == 1) {
-                    echo "<a href='decrypt.php' class='btn btn-success'>Terenkripsi</a>";
+                        <td style="vertical-align:middle;"><?php echo $data['file_name_finish']; ?></td>
+                        <td style="vertical-align:middle;"><?php echo $data['file_size']; ?> KB</td>
+                        <td style="vertical-align:middle;"><?php echo $data['keterangan']; ?></td>
+                        <td style="vertical-align:middle;"><?php if ($data['status'] == 1) {
+                    echo "<a href='javascript:void(0)' class='btn btn-success btn-sm'><i class='fa fa-check'></i> Terenkripsi</a>";
                   }elseif ($data['status'] == 2) {
-                    echo "<a href='file_decrypt/$namabrks' class='btn btn-warning'> Download</a>     
+                    echo "<a href='file_decrypt/$namabrks' class='btn btn-warning btn-sm' download><i class='fa fa-download'></i> Download</a>     
                     ";
                   }else {
                     echo "<span class='btn btn-danger'>Status Tidak Diketahui</span>";
@@ -48,8 +48,8 @@
                   ?></td>
                         <td>
                             <a onClick="return confirm('Data ini akan di hapus.?')"
-                                href="delete.php.?id=<?php echo $data['id_file']; ?>" class="btn btn-danger ">
-                                Delete
+                                href="delete.php.?id=<?php echo $data['id_file']; ?>" class="btn btn-danger btn-sm">
+                                <i class="fa fa-trash"></i> Delete
                             </a>
                         </td>
                     </tr>
@@ -62,3 +62,4 @@
     </div>
     </div>
 </main>
+<?php include 'template/footer.php'?>
