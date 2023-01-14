@@ -22,6 +22,6 @@ if (isset($_POST['login'])) {
 			echo "alert('Username atau Password Salah!');\n";
 			echo "window.location='index.php'";
 			echo "</script>";
-		}
+		} 
 	}
 }

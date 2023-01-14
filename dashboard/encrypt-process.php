@@ -34,7 +34,7 @@ if (isset($_POST['encrypt_now'])) {
   } else {
     echo ("<script language='javascript'>
       window.location.href='encrypt.php';
-      window.alert('Maaf, file yang bisa dienkrip hanya jpg dan png.');
+      window.alert('Maaf, tipe file tidak bisa dienkripsi');
       </script>");
     exit();
   }
@@ -84,7 +84,7 @@ if (isset($_POST['encrypt_now'])) {
 
     echo ("<script language='javascript'>
     window.location.href='decrypt.php';
-    window.alert('Hasil Radiologi Berhasil di Enkripsi');
+    window.alert('File Berhasil di Enkripsi pada " . date('d-m-Y H:i:s') . "');
     </script>");
   } else {
     echo ("<script language='javascript'>
