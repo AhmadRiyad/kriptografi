@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <title>ALGORITMA AES-128</title>
     <!-- Include the Bootstrap CSS file -->
     <link rel="stylesheet" href="../assets/css/style1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,8 +17,9 @@
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar" class="active">
             <h1><a href="index.php" class="logo">
-                    <img src="../assets/gambar/LogoBNG.png" alt="" srcset="" width="50">
-                </a></h1>
+                    <img src="../assets/gambar/LogoBNG.png" alt="" srcset="" width="50"></h1>
+            <p class="logo-text" font-size="10px">PT. BNG CONSULTING</p>
+            </a>
             <ul class="list-unstyled components mb-5">
                 <li class="active"><a href="index.php"><span class="fa fa-home"></span>Dashboard</a></li>
                 <li class="active">
@@ -27,12 +28,10 @@
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="encrypt.php">
-                                Enkripsi
-                            </a>
+                            <a href="encrypt.php"><i class="fa fa-lock"></i> Enkripsi</a>
                         </li>
                         <li>
-                            <a href="decrypt.php">Dekripsi</a>
+                            <a href="decrypt.php"><i class="fa fa-unlock"></i>Dekripsi</a>
                         </li>
                     </ul>
                 </li>

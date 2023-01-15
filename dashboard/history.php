@@ -1,15 +1,11 @@
 <?php include('../config.php');?>
 <?php include 'template/header.php'; ?>
 
-<main role="main" class="container">
-    <div class="col-md-12">
-        <div class="card card-signin flex-row my-5">
-            <div class="card-body">
-                <ul class="breadcrumb">
-                    <h1><i class="fa fa-folder"></i> Daftar Berkas Enkripsi dan Dekripsi</h1>
-                </ul>
-            </div>
-        </div>
+<div class="card mt-3">
+    <div class="card-header">
+        <h1><i class="fa fa-unlock"></i>Daftar Berkas Enkripsi dan Dekripsi</h1>
+    </div>
+    <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered table-striped dataTable">
                 <thead class="bg-primary">
@@ -59,7 +55,5 @@
             </table>
         </div>
     </div>
-    </div>
-    </div>
-</main>
+</div>
 <?php include 'template/footer.php'?>
