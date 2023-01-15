@@ -2,6 +2,8 @@
 session_start();
 include('../config.php');  //memasukan koneksi
 include "./AES.php"; //memasukan file AES
+include 'template/header.php';
+
 
 $idfile    = mysqli_escape_string($connect,$_POST['fileid']);
 $pwdfile   = mysqli_escape_string($connect,substr(md5($_POST["pwdfile"]), 0,16));
@@ -39,18 +41,21 @@ if(mysqli_num_rows($sql)>0){
 
     ini_set('max_execution_time', -1);
     ini_set('memory_limit', -1);
+    $start_time = microtime(true);
     for($bawah=0;$bawah<$banyak;$bawah++){
 
       $filedata    = fread($fopen1, 16);
       $plain       = $aes->decrypt($filedata);
       fwrite($fopen2, $plain);
    }
+   $end_time = microtime(true);
+   $total_time = $end_time - $start_time;
    $_SESSION["download"] = $cache;
 
    echo("<script language='javascript'>
        window.open('download.php', '_blank');
        window.location.href='decrypt.php';
-       window.alert('Berhasil mendekripsi file.');
+       window.alert('Berhasil mendekripsi file.'+'$total_time'+' detik');
        </script>
        ");
 }else{
@@ -60,3 +65,4 @@ if(mysqli_num_rows($sql)>0){
     </script>");
 }
 ?>
+<?php include 'template/footer.php'; ?>

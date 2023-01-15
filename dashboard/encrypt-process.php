@@ -24,7 +24,7 @@ if (isset($_POST['encrypt_now'])) {
   $file_source    = fopen($file_tmpname, 'rb');
   $ext            = $info["extension"];
 
-  if ($ext == "docx" || $ext == "doc" || $ext == "txt" || $ext == "pdf" || $ext == "xls" || $ext == "xlsx" || $ext == "ppt" || $ext == "pptx") {
+  if ($ext == "docx" || $ext == "doc" || $ext == "txt" || $ext == "pdf" || $ext == "xls" || $ext == "xlsx" || $ext == "ppt" || $ext == "pptx"|| $ext == "mdb") {
   } else {
     echo ("<script language='javascript'>
       window.location.href='encrypt.php';
@@ -67,18 +67,20 @@ if (isset($_POST['encrypt_now'])) {
     ini_set('max_execution_time', -1);
     ini_set('memory_limit', -1);
     $aes = new AES($key);
-
+    $start_time = microtime(true);
     for ($bawah = 0; $bawah < $banyak; $bawah++) {
       $data    = fread($file_source, 16);
       $cipher  = $aes->encrypt($data);
       fwrite($file_output, $cipher);
     }
+    $end_time = microtime(true);
+    $total_time = $end_time - $start_time;
     fclose($file_source);
     fclose($file_output);
 
     echo ("<script language='javascript'>
     window.location.href='decrypt.php';
-    window.alert('File Berhasil di Enkripsi pada " . date('d-m-Y H:i:s') . "');
+    window.alert('File Berhasil di Enkripsi pada '+'$total_time'+' detik');
     </script>");
   } else {
     echo ("<script language='javascript'>
