@@ -29,11 +29,7 @@ include 'template/header.php';
                         <label class="control-label" for="inputPassword">Password</label>
                         <div class="">
                             <input class="form-control" id="inputPassword" type="password"
-                                placeholder="Password / Kunci Enkripsi " minlength="16" maxlength="16" name="pwdfile"
-                                required>
-                            <span class="text-danger" style="font-size:13px;">Ketentuan: password minimal 16 karakter
-                                atau
-                                lebih.</span>
+                                placeholder="Password / Kunci Enkripsi " name="pwdfile" required>
                         </div>
                     </div>
                     <div class="form-group">

@@ -3,7 +3,7 @@
 
 <div class="card mt-3">
     <div class="card-header">
-        <h1><i class="fa fa-unlock"></i>Daftar Berkas Enkripsi dan Dekripsi</h1>
+        <h1><i class="fa fa-history"></i>Daftar Berkas Enkripsi dan Dekripsi</h1>
     </div>
     <div class="card-body">
         <div class="table-responsive">

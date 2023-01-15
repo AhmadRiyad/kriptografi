@@ -1,28 +1,38 @@
 <?php
-session_start();
-include('../config.php');
 include('./template/header.php');
-if (empty($_SESSION['username'])) {
-    header("location:../index.php");
-}
-$last = $_SESSION['username'];
-$sqlupdate = "UPDATE users SET last_activity=now() WHERE username='$last'";
-$queryupdate = mysqli_query($connect, $sqlupdate);
-?>
-
-<?php
-$user = $_SESSION['username'];
-$query = mysqli_query($connect, "SELECT fullname,job_title,last_activity FROM users WHERE username='$user'");
-$data = mysqli_fetch_array($query);
 ?>
 
 <div class="card mt-3">
     <div class="card-body">
         <h2 class="text-center">
-        Implementasi Algoritma AES (Advanced Encryption Standard)
+            <span class="material-icons" style="font-size:36px">help</span><strong>Bantuan Penggunaan Aplikasi</strong>
         </h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td> - Menu Dashboard merupakan stastik dan penggunaan aplikasi ini</td>
+                </tr>
+                <tr>
+                    <td> - Menu File terbagi 2 yakni Enkripsi dan Dekripsi</td>
+                </tr>
+                <tr>
+                    <td> - Untuk Mengenkripsi file pilih pada menu File -> Enkripsi</td>
+                </tr>
+                <tr>
+                    <td> - Untuk Mengdekripsi file pilih pada menu File -> Dekripsi</td>
+                </tr>
+                <tr>
+                    <td> - Menu Daftar Hasil merupkan menu untuk melihat daftar list file yang telah dienkripsi dan
+                        didekripsi</td>
+                </tr>
+                <tr>
+                    <td> - Menu Bantuan merupkan menu untuk membantu penggunaan Aplikasi ini</td>
+                </tr>
+            </thead>
+        </table>
     </div>
 </div>
+
 
 <?php
 include 'template/footer.php';

@@ -5,15 +5,9 @@ include "AES.php";
 
 if (isset($_POST['encrypt_now'])) {
   $user      = $_SESSION['username'];
-  $pwdfile = mysqli_escape_string($connect, $_POST['pwdfile']);
-  $pwdlen = strlen($pwdfile);
-  if($pwdlen < 16){
-    echo 'Password minimal 16 karakter atau lebih';
-    die;
-  }
-
-  $key       = substr(md5($pwdfile), 0, 16);
+  $key       = mysqli_escape_string($connect, substr(md5($_POST["pwdfile"]), 0, 16));
   $deskripsi = mysqli_escape_string($connect, $_POST['desc']);
+
 
   $file_tmpname   = $_FILES['file']['tmp_name'];
   //untuk nama file url

@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -36,7 +37,7 @@
                     </ul>
                 </li>
                 <li><a href="history.php"><span class="fa fa-history"></span>Daftar Hasil</a></li>
-                <li><a href="bantuan.php"><span class="fa fa-book"></span>Bantuan</a></li>
+                <li><a href="bantuan.php"><span class="material-icons">help</span>Bantuan</a></li>
             </ul>
         </nav>
         <div id="content" class="p-4 p-md-5">
