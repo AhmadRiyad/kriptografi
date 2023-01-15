@@ -16,17 +16,11 @@ $query = mysqli_query($connect, "SELECT fullname,job_title,last_activity FROM us
 $data = mysqli_fetch_array($query);
 ?>
 
-<div class="card">
-    <div class="container">
-
-        <br><br><br>
-        <h2 class="display-5">
-            <BR>
-            <center>
-                Implementasi Algoritma AES (Advanced Encryption Standard)
-            </center>
-            </<h2>
-            <br>
+<div class="card mt-3">
+    <div class="card-body">
+        <h2 class="text-center">
+        Implementasi Algoritma AES (Advanced Encryption Standard)
+        </h2>
     </div>
 </div>
 
@@ -94,3 +88,7 @@ $data = mysqli_fetch_array($query);
         </div>
     </div>
 </main>
+
+<?php
+include 'template/footer.php';
+?>

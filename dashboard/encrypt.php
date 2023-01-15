@@ -3,63 +3,51 @@ include('../config.php');
 include 'template/header.php'; 
 ?>
 
-<main role="main" class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card card-signin flex-row my-5">
-                <div class="card-body">
-                    <form class="form-horizontal" method="post" action="encrypt-process.php"
-                        enctype="multipart/form-data">
-                        <fieldset>
-                            <div>
-                                <ul class="breadcrumb">
-                                    <h1><i class="fa fa-lock"></i> Enkripsi Berkas </h1>
-                                </ul>
-                            </div>
-                            <div>
-                                <hr>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-lg-2 control-label" for="inputPassword"> Tanggal</label>
-                                <div class="col-lg-4">
-                                    <input class="form-control" id="inputTgl" type="text" placeholder="Tanggal"
-                                        name="datenow" value="<?php echo date("Y-m-d H:i:s"); ?>" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-lg-12 control-label" for="inputFile">File Enkripsi </label>
-                                <div class="col-lg-4">
-                                    <input class="form-control" id="inputFile" placeholder="Input File" type="file"
-                                        name="file" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-lg-2 control-label" for="inputPassword">Password</label>
-                                <div class="col-lg-4">
-                                    <input class="form-control" id="inputPassword" type="password"
-                                        placeholder="Password / Kunci Enkripsi " minlength="16" maxlength="16" name="pwdfile" required>
-                                    <span class="text-danger" style="font-size:13px;">Ketentuan: password minimal 16 karakter atau lebih.</span>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-lg-2 control-label" for="textArea">Keterangan</label>
-                                <div class="col-lg-4">
-                                    <textarea class="form-control" id="textArea" rows="3" name="desc"
-                                        placeholder="Keterangan.."></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-lg-2 control-label" for="textArea"></label>
-                                <div class="col-lg-2">
-                                    <input type="submit" name="encrypt_now" value="ENKRIPSI"
-                                        class="form-control btn btn-primary">
-                                </div>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card mt-3">
+            <div class="card-header text-center">
+                <h1><i class="fa fa-lock"></i> Enkripsi Berkas </h1>
+            </div>
+            <div class="card-body">
+                <form class="form-horizontal" method="post" action="encrypt-process.php" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label class="control-label" for="inputPassword"> Tanggal</label>
+                        <div class="">
+                            <input class="form-control" id="inputTgl" type="text" placeholder="Tanggal" name="datenow"
+                                value="<?php echo date("Y-m-d H:i:s"); ?>" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="inputFile">File Enkripsi </label>
+                        <div class="">
+                            <input class="form-control" id="inputFile" placeholder="Input File" type="file" name="file"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="inputPassword">Password</label>
+                        <div class="">
+                            <input class="form-control" id="inputPassword" type="password"
+                                placeholder="Password / Kunci Enkripsi " minlength="16" maxlength="16" name="pwdfile"
+                                required>
+                            <span class="text-danger" style="font-size:13px;">Ketentuan: password minimal 16 karakter
+                                atau
+                                lebih.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="textArea">Keterangan</label>
+                        <div class="">
+                            <textarea class="form-control" id="textArea" rows="3" name="desc"
+                                placeholder="Keterangan.."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="encrypt_now"><i class="fa fa-lock"></i>
+                        ENKRIPSI</button>
+                </form>
             </div>
         </div>
     </div>
-</main>
+</div>
 <?php include 'template/footer.php'; ?>
