@@ -25,14 +25,14 @@
                 <li class="active"><a href="index.php"><span class="fa fa-home"></span>Dashboard</a></li>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <span class="fa fa-file"></span> File
+                        <span class="fa fa-file"></span> Berkas
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="encrypt.php"><i class="fa fa-lock"></i> Enkripsi</a>
+                            <a href="encrypt.php"><i class="fa fa-lock"></i>Enkripsi Berkas</a>
                         </li>
                         <li>
-                            <a href="decrypt.php"><i class="fa fa-unlock"></i>Dekripsi</a>
+                            <a href="decrypt.php"><i class="fa fa-unlock"></i>Dekripsi Berkas</a>
                         </li>
                     </ul>
                 </li>

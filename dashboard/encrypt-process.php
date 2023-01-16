@@ -25,11 +25,11 @@ if (isset($_POST['encrypt_now'])) {
   $file_source    = fopen($file_tmpname, 'rb');
   $ext            = $info["extension"];
 
-  if ($ext == "docx" || $ext == "doc" || $ext == "txt" || $ext == "pdf" || $ext == "xls" || $ext == "xlsx" || $ext == "ppt" || $ext == "pptx"|| $ext == "mdb") {
+  if ($ext == "docx" || $ext == "doc" || $ext == "txt" || $ext == "pdf" || $ext == "xls" || $ext == "xlsx" || $ext == "ppt" || $ext == "pptx" || $ext == "mdb") {
   } else {
     echo ("<script language='javascript'>
       window.location.href='encrypt.php';
-      window.alert('Maaf, tipe file tidak bisa dienkripsi');
+      window.alert('Maaf, tipe file yang bisa dienkripsi hanya word, excel, text, ppt, pdf ataupun mdb');
       </script>");
     exit();
   }
@@ -53,7 +53,7 @@ if (isset($_POST['encrypt_now'])) {
 
   $sql3   = "UPDATE file SET file_url ='$file_url' WHERE file_url=''";
   $query3  = mysqli_query($connect, $sql3) or die(mysqli_error($connect));
-  
+
   // $sql4 = "UPDATE file SET wkt_upload ='$total_time_in_seconds' WHERE file_url='$file_url'";
   // $query4 = mysqli_query($connect, $sql4) or die(mysqli_error($connect));
 
