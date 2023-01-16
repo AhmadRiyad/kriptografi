@@ -50,12 +50,13 @@ if(mysqli_num_rows($sql)>0){
    }
    $end_time = microtime(true);
    $total_time = $end_time - $start_time;
+   $total_time_in_seconds = round($total_time, 2);
    $_SESSION["download"] = $cache;
 
    echo("<script language='javascript'>
        window.open('download.php', '_blank');
        window.location.href='decrypt.php';
-       window.alert('Berhasil mendekripsi file.'+'$total_time'+' detik');
+       window.alert('Berhasil mendekripsi file, waktu mendekripsi: $total_time_in_seconds detik');
        </script>
        ");
 }else{

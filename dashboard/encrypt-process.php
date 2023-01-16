@@ -53,6 +53,10 @@ if (isset($_POST['encrypt_now'])) {
 
   $sql3   = "UPDATE file SET file_url ='$file_url' WHERE file_url=''";
   $query3  = mysqli_query($connect, $sql3) or die(mysqli_error($connect));
+  
+  // $sql4 = "UPDATE file SET wkt_upload ='$total_time_in_seconds' WHERE file_url='$file_url'";
+  // $query4 = mysqli_query($connect, $sql4) or die(mysqli_error($connect));
+
 
   $file_output    = fopen($file_url, 'wb');
 
@@ -76,12 +80,13 @@ if (isset($_POST['encrypt_now'])) {
     }
     $end_time = microtime(true);
     $total_time = $end_time - $start_time;
+    $total_time_in_seconds = round($total_time, 2);
     fclose($file_source);
     fclose($file_output);
 
     echo ("<script language='javascript'>
-    window.location.href='decrypt.php';
-    window.alert('File Berhasil di Enkripsi pada '+'$total_time'+' detik');
+    window.location.href='encrypt.php';
+    window.alert('File berhasil di enkripsi dan diupload, waktu upload: $total_time_in_seconds detik');
     </script>");
   } else {
     echo ("<script language='javascript'>
