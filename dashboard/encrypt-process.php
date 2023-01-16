@@ -3,6 +3,7 @@ session_start();
 include "../config.php";
 include "AES.php";
 
+
 if (isset($_POST['encrypt_now'])) {
   $user      = $_SESSION['username'];
   $key       = mysqli_escape_string($connect, substr(md5($_POST["pwdfile"]), 0, 16));

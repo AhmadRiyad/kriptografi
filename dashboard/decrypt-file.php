@@ -1,12 +1,12 @@
 <?php include('../config.php');?>
-<?php include('./template/header.php');?>
+<?php include 'template/header.php'; ?>
 
 <main role="main" class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="card card-signin flex-row my-5">
                 <div class="card-body">
-                    <H5 class="card-title text-left">FORM DESKRIPSI </H5>
+                    <H5 class="card-title text-left">FORM DEKRIPSI </H5>
                     <div>
                         <hr>
                     </div>
@@ -21,7 +21,7 @@
                         <div class="table-responsive">
                             <table class="table striped">
                                 <tr>
-                                    <td>Nama Sumber File Hasil</td>
+                                    <td>Nama File</td>
                                     <td>:</td>
                                     <td><?php echo $data2['file_name_source']; ?></td>
                                 </tr>
@@ -73,3 +73,4 @@
         </div>
     </div>
 </main>
+<?php include 'template/footer.php'; ?>
