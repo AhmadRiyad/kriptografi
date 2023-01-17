@@ -34,10 +34,10 @@ if (isset($_POST['encrypt_now'])) {
     exit();
   }
 
-  if ($size2 > 25600) {
+  if ($size2 > 5120) {
     echo ("<script language='javascript'>
       window.location.href='encrypt.php';
-      window.alert('Maaf, file tidak bisa lebih besar dari 25 MB.');
+      window.alert('Maaf, file tidak bisa lebih besar dari 5 MB.');
       </script>");
     exit();
   }
@@ -53,10 +53,6 @@ if (isset($_POST['encrypt_now'])) {
 
   $sql3   = "UPDATE file SET file_url ='$file_url' WHERE file_url=''";
   $query3  = mysqli_query($connect, $sql3) or die(mysqli_error($connect));
-
-  // $sql4 = "UPDATE file SET wkt_upload ='$total_time_in_seconds' WHERE file_url='$file_url'";
-  // $query4 = mysqli_query($connect, $sql4) or die(mysqli_error($connect));
-
 
   $file_output    = fopen($file_url, 'wb');
 
