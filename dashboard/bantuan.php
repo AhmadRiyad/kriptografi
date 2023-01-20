@@ -8,7 +8,7 @@ include('./template/header.php');
             <span class="material-icons" style="font-size:36px">help</span><strong>Bantuan Penggunaan Aplikasi</strong>
         </h2>
         <table class="table">
-            <thead>
+            <tbody>
                 <tr>
                     <td> - Menu Dashboard merupakan stastik dan penggunaan aplikasi ini</td>
                 </tr>
@@ -28,7 +28,7 @@ include('./template/header.php');
                 <tr>
                     <td> - Menu Bantuan merupkan menu untuk membantu penggunaan Aplikasi ini</td>
                 </tr>
-            </thead>
+            </tbody>
         </table>
     </div>
 </div>
