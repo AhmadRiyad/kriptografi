@@ -2,7 +2,6 @@
 session_start();
 include('../../config.php');  //memasukan koneksi
 include "AES.php"; //memasukan file AES
-//include '../template/header.php';
 
 $idfile    = mysqli_escape_string($connect,$_POST['fileid']);
 $pwdfile   = mysqli_escape_string($connect,substr(md5($_POST["pwdfile"]), 0,16));
