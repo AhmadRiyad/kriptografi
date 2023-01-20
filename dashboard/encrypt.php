@@ -10,7 +10,7 @@ include 'template/header.php';
                 <h1><i class="fa fa-lock"></i> Enkripsi Berkas </h1>
             </div>
             <div class="card-body">
-                <form class="form-horizontal" method="post" action="encrypt-process.php" enctype="multipart/form-data">
+                <form class="form-horizontal" method="post" action="functions/encrypt-process.php" enctype="multipart/form-data">
                     <div class="form-group">
                         <label class="control-label" for="inputPassword"> Tanggal</label>
                         <div class="">

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../config.php";
+include "../../config.php";
 include "AES.php";
 
 
@@ -28,7 +28,7 @@ if (isset($_POST['encrypt_now'])) {
   if ($ext == "docx" || $ext == "doc" || $ext == "txt" || $ext == "pdf" || $ext == "xls" || $ext == "xlsx" || $ext == "ppt" || $ext == "pptx" || $ext == "mdb") {
   } else {
     echo ("<script language='javascript'>
-      window.location.href='encrypt.php';
+      window.location.href='../encrypt.php';
       window.alert('Maaf, tipe file yang bisa dienkripsi hanya word, excel, text, ppt, pdf ataupun mdb');
       </script>");
     exit();
@@ -36,7 +36,7 @@ if (isset($_POST['encrypt_now'])) {
 
   if ($size2 > 5120) {
     echo ("<script language='javascript'>
-      window.location.href='encrypt.php';
+      window.location.href='../encrypt.php';
       window.alert('Maaf, file tidak bisa lebih besar dari 5 MB.');
       </script>");
     exit();
@@ -49,7 +49,7 @@ if (isset($_POST['encrypt_now'])) {
   $query2  = mysqli_query($connect, $sql2) or die(mysqli_error($connect));
 
   $url   = $finalfile . ".rda";
-  $file_url = "file_encrypt/$url";
+  $file_url = "../file_encrypt/$url";
 
   $sql3   = "UPDATE file SET file_url ='$file_url' WHERE file_url=''";
   $query3  = mysqli_query($connect, $sql3) or die(mysqli_error($connect));
@@ -81,12 +81,12 @@ if (isset($_POST['encrypt_now'])) {
     fclose($file_output);
 
     echo ("<script language='javascript'>
-    window.location.href='encrypt.php';
+    window.location.href='../encrypt.php';
     window.alert('File berhasil di enkripsi dan diupload, waktu upload: $total_time_in_seconds detik');
     </script>");
   } else {
     echo ("<script language='javascript'>
-    window.location.href='encrypt.php';
+    window.location.href='../encrypt.php';
     window.alert('Encrypt file mengalami masalah..');
     </script>");
   }

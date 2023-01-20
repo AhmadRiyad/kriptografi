@@ -17,7 +17,7 @@
           ?>
                     <h3 align="center">File Enkripsi <i style="color:blue"><?php echo $data2['file_name_finish'] ?></i>
                     </h3><br>
-                    <form class="form-horizontal" method="post" action="decrypt-process.php">
+                    <form class="form-horizontal" method="post" action="functions/decrypt-process.php">
                         <div class="table-responsive">
                             <table class="table striped">
                                 <tr>

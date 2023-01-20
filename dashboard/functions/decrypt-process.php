@@ -1,9 +1,8 @@
 <?php
 session_start();
-include('../config.php');  //memasukan koneksi
-include "./AES.php"; //memasukan file AES
-include 'template/header.php';
-
+include('../../config.php');  //memasukan koneksi
+include "AES.php"; //memasukan file AES
+//include '../template/header.php';
 
 $idfile    = mysqli_escape_string($connect,$_POST['fileid']);
 $pwdfile   = mysqli_escape_string($connect,substr(md5($_POST["pwdfile"]), 0,16));
@@ -29,7 +28,7 @@ if(mysqli_num_rows($sql)>0){
     $aes        = new AES($key);
     $fopen1     = fopen($file_path, "rb");
     $plain      = "";
-    $cache      = "file_decrypt/$file_name";
+    $cache      = "../file_decrypt/$file_name";
     $fopen2     = fopen($cache, "wb");
 
     if($mod==0){
@@ -55,13 +54,14 @@ if(mysqli_num_rows($sql)>0){
 
    echo("<script language='javascript'>
        window.open('download.php', '_blank');
-       window.location.href='decrypt.php';
+       window.location.href='../decrypt.php';
        window.alert('Berhasil mendekripsi file, waktu mendekripsi: $total_time_in_seconds detik');
        </script>
        ");
 }else{
+    
  echo("<script language='javascript'>
-    window.location.href='decrypt-file.php?id_file=$idfile';
+    window.location.href='../decrypt-file.php?id_file=$idfile';
     window.alert('Maaf, Password tidak sesuai.');
     </script>");
 }
