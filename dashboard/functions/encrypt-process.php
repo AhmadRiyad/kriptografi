@@ -42,17 +42,11 @@ if (isset($_POST['encrypt_now'])) {
     exit();
   }
 
-  $sql1   = "INSERT INTO file VALUES ('', '$user', '$final_file', '$finalfile.rda', '', '$size2', '$key', now(), '1', '$deskripsi')";
-  $query1  = mysqli_query($connect, $sql1) or die(mysqli_error($connect));
-
   $sql2   = "select * from file where file_url =''";
   $query2  = mysqli_query($connect, $sql2) or die(mysqli_error($connect));
 
   $url   = $finalfile . ".rda";
-  $file_url = "../file_encrypt/$url";
-
-  $sql3   = "UPDATE file SET file_url ='$file_url' WHERE file_url=''";
-  $query3  = mysqli_query($connect, $sql3) or die(mysqli_error($connect));
+  $file_url = "../file_encrypt/$url";  
 
   $file_output    = fopen($file_url, 'wb');
 
@@ -79,6 +73,12 @@ if (isset($_POST['encrypt_now'])) {
     $total_time_in_seconds = round($total_time, 2);
     fclose($file_source);
     fclose($file_output);
+
+    $sql1   = "INSERT INTO file VALUES ('', '$user', '$final_file', '$finalfile.rda', '', '$size2', '$key', now(), '1', '$deskripsi', '$total_time_in_seconds')";
+    $query1  = mysqli_query($connect, $sql1) or die(mysqli_error($connect));
+
+    $sql3   = "UPDATE file SET file_url ='$file_url' WHERE file_url=''";
+    $query3  = mysqli_query($connect, $sql3) or die(mysqli_error($connect));
 
     echo ("<script language='javascript'>
     window.location.href='../encrypt.php';
