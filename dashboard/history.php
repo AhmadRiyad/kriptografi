@@ -1,5 +1,7 @@
-<?php include('../config.php'); ?>
-<?php include 'template/header.php'; ?>
+<?php 
+include('../config.php');
+include 'template/header.php'; 
+?>
 
 <div class="card mt-3">
     <div class="card-header">
@@ -7,7 +9,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered table-striped dataTable">
+            <table id="file" class="table table-bordered table-striped dataTable">
                 <thead class="bg-primary">
                     <tr>
                         <th style="vertical-align:middle;" class="text-center">NO</th>
@@ -26,7 +28,7 @@
                     $no = 1;
                     $query = mysqli_query($connect, "SELECT * FROM file");
                     while ($data = mysqli_fetch_array($query)) { ?>
-                    <tr>
+                <tr>
                         <td class="text-center" style="vertical-align:middle;"><?php echo $no++; ?></td>
                         <td style="vertical-align:middle;"><?php echo $data['username']; ?></td>
                         <td style="vertical-align:middle;"><?php echo $data['file_name_source']; ?></td>                        
@@ -48,14 +50,14 @@
                             echo "<a href='file_decrypt/".$data['file_name_source']."' class='btn btn-primary btn-sm' download><i class='fa fa-download'></i> Download</a>";
                         }
                         ?>
-                        </td>
-                        <td style="vertical-align:middle;">
+                         <td style="vertical-align:middle;">
                             <a onClick="return confirm('Data ini akan di hapus.?')"
                                 href="delete.php.?id=<?php echo $data['id_file']; ?>" class="btn btn-danger btn-sm">
                                 <i class="fa fa-trash"></i> Delete
                             </a>
                         </td>
-                    </tr>
+                    </td>
+                </tr>
                     <?php
                     } ?>
                 </tbody>
