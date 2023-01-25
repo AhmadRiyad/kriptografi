@@ -46,7 +46,7 @@ if (isset($_POST['encrypt_now'])) {
   $query2  = mysqli_query($connect, $sql2) or die(mysqli_error($connect));
 
   $url   = $finalfile . ".rda";
-  $file_url = "../file_encrypt/$url";  
+  $file_url = "../file_encrypt/$url";
 
   $file_output    = fopen($file_url, 'wb');
 
@@ -74,7 +74,9 @@ if (isset($_POST['encrypt_now'])) {
     fclose($file_source);
     fclose($file_output);
 
-    $sql1   = "INSERT INTO file VALUES ('', '$user', '$final_file', '$finalfile.rda', '', '$size2', '$key', now(), '1', '$deskripsi', '$total_time_in_seconds')";
+    $sql1   = "INSERT INTO file(`username`,`file_name_source`,`file_name_finish`,
+    `file_url`, `file_size`, `password`, `tgl_upload`, `status`, `keterangan`, `durasi_proses_enkripsi`) VALUES 
+    ('$user', '$final_file', '$finalfile.rda', '$file_url', '$size2', '$key', now(), '1', '$deskripsi', '$total_time_in_seconds')";
     $query1  = mysqli_query($connect, $sql1) or die(mysqli_error($connect));
 
     $sql3   = "UPDATE file SET file_url ='$file_url' WHERE file_url=''";
