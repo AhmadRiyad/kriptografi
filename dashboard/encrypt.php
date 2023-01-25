@@ -19,7 +19,7 @@ include 'template/header.php';
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="inputFile">File Enkripsi </label>
+                        <label class="control-label" for="inputFile">Berkas Enkripsi </label>
                         <div class="">
                             <input class="form-control" id="inputFile" placeholder="Input File" type="file" name="file"
                                 required>
@@ -28,7 +28,7 @@ include 'template/header.php';
                     <div class="form-group">
                         <label class="control-label" for="inputPassword">Password</label>
                         <div class="">
-                            <input class="form-control" id="inputPassword" type="password"
+                            <input class="form-control" id="inputPassword" type="password" minlength="1" maxlength="16"
                                 placeholder="Password / Kunci Enkripsi " name="pwdfile" required>
                         </div>
                     </div>

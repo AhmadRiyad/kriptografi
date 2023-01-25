@@ -15,28 +15,18 @@
           $query = mysqli_query($connect,"SELECT * FROM file WHERE id_file='$id_file'");
           $data2 = mysqli_fetch_array($query);
           ?>
-                    <h3 align="center">File Enkripsi <i style="color:blue"><?php echo $data2['file_name_finish'] ?></i>
+                    <h3 align="center">Berkas Enkripsi <i style="color:blue"><?php echo $data2['file_name_finish'] ?></i>
                     </h3><br>
                     <form class="form-horizontal" method="post" action="functions/decrypt-process.php">
                         <div class="table-responsive">
                             <table class="table striped">
                                 <tr>
-                                    <td>Nama File</td>
+                                    <td>Nama Berkas</td>
                                     <td>:</td>
                                     <td><?php echo $data2['file_name_source']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>File Enkripsi</td>
-                                    <td>:</td>
-                                    <td><?php echo $data2['file_name_finish']; ?>
-                                        <hr>
-                                        <a href="file_encrypt/<?php echo $data2['file_name_finish']; ?>"
-                                            class="btn btn-primary btn-sm">Download</a>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>Ukuran File</td>
+                                    <td>Ukuran Berkas</td>
                                     <td>:</td>
                                     <td><?php echo $data2['file_size']; ?> KB</td>
                                 </tr>
@@ -57,7 +47,7 @@
                                         <div class="col-md-6">
                                             <input type="hidden" name="fileid" value="<?php echo $data2['id_file'];?>">
                                             <input class="form-control" id="inputPassword" type="password"
-                                                placeholder="Password / Kunci Enkripsi" name="pwdfile" required><br>
+                                                placeholder="Password / Kunci Enkripsi" id="" minlength="1" maxlength="16" name="pwdfile" required><br>
                                             <input type="submit" name="decrypt_now" value="DESKRIPSI"
                                                 class="form-control btn btn-primary">
                                         </div>

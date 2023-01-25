@@ -11,11 +11,11 @@
                 <thead class="bg-primary">
                     <tr>
                         <th style="vertical-align:middle;" width="5%" class="text-center">No</th>
-                        <th style="vertical-align:middle;" width="20%">Nama Hasil</th>
-                        <th style="vertical-align:middle;" width="20%">Enkripsi</th>
-                        <th style="vertical-align:middle;" width="20%">Lokasi Enkripsi</th>
+                        <th style="vertical-align:middle;" width="20%">Nama Berkas</th>
+                        <th style="vertical-align:middle;" width="20%">Nama Berkas Enkripsi</th>
                         <th style="vertical-align:middle;" width="15%">Ukuran Hasil</th>
-                        <th style="vertical-align:middle;" width="10%">Deskripsi</th>
+                        <th style="vertical-align:middle;" width="5%">Status</th>
+                        <th style="vertical-align:middle;" width="10%">Dekripsi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,8 +27,11 @@
                         <td style="vertical-align:middle;"><?php echo $i; ?></td>
                         <td style="vertical-align:middle;"><?php echo $data['file_name_source']; ?></td>
                         <td style="vertical-align:middle;"><?php echo $data['file_name_finish']; ?></td>
-                        <td style="vertical-align:middle;"><?php echo $data['file_url']; ?></td>
-                        <td style="vertical-align:middle;"><?php echo $data['file_size']; ?> Kilobyte (KB)
+                        <td style="vertical-align:middle;"><?php echo $data['file_size']; ?> KB
+                        <td style="vertical-align:middle;font-size:17px;">
+                                <span class="badge bg-success">
+                                    <i class="fa fa-check"></i> Terenkripsi
+                                </span>
                         </td>
                         <td style="vertical-align:middle;">
                             <?php

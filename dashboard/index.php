@@ -62,7 +62,7 @@ $data = mysqli_fetch_array($query);
         <div class="col-lg-12 col-xl-8">
             <div class="card card-signin flex-row my-5">
                 <div class="card-body">
-                    <H5 class="card-title text-left">HASIL FILE ENKRIPSI & DESKRIPSI</H5>
+                    <H5 class="card-title text-left">HASIL BERKAS ENKRIPSI & DESKRIPSI</H5>
                     <table class="table">
                         <thead>
                             <tr>

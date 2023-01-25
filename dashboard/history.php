@@ -10,11 +10,11 @@
             <table class="table table-bordered table-striped dataTable">
                 <thead class="bg-primary">
                     <tr>
-                        <th style="vertical-align:middle;" class="text-center">Id File</th>
-                        <th style="vertical-align:middle;">User</th>
-                        <th style="vertical-align:middle;">Nama File Asli</th>
-                        <th style="vertical-align:middle;">File Enkripsi</th>
-                        <th style="vertical-align:middle;">Ukuran File</th>
+                        <th style="vertical-align:middle;" class="text-center">NO</th>
+                        <th style="vertical-align:middle;">Username</th>
+                        <th style="vertical-align:middle;">Nama Berkas</th>
+                        <th style="vertical-align:middle;">Nama Berkas Enkripsi</th>
+                        <th style="vertical-align:middle;">Ukuran Berkas</th>
                         <th style="vertical-align:middle;">Keterangan</th>
                         <th style="vertical-align:middle;">Waktu</th>                        
                         <th style="vertical-align:middle;">Status</th>
