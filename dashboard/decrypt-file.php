@@ -47,9 +47,13 @@
                                         <div class="col-md-6">
                                             <input type="hidden" name="fileid" value="<?php echo $data2['id_file'];?>">
                                             <input class="form-control" id="inputPassword" type="password"
-                                                placeholder="Password / Kunci Enkripsi" id="" minlength="1" maxlength="16" name="pwdfile" required><br>
-                                            <input type="submit" name="decrypt_now" value="DESKRIPSI"
-                                                class="form-control btn btn-primary">
+                                                placeholder="Password / Kunci Enkripsi" id="" minlength="1" maxlength="16" name="pwdfile" required>
+                                        </div>
+                                        <div>
+                                        <div class="card-footer flex-row my-3" >
+                                        <a href="decrypt.php" class="btn btn-secondary btn-md">Kembali</a>
+                                        <button type="submit" name="decrypt_now" class="btn btn-primary btn-md"><i class="fa fa-unlock-alt"></i> Dekripsi</button>
+
                                         </div>
                                     </td>
                                 </tr>
