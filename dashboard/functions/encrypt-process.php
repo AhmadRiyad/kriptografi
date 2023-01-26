@@ -89,7 +89,7 @@ if (isset($_POST['encrypt_now'])) {
   } else {
     echo ("<script language='javascript'>
     window.location.href='../encrypt.php';
-    window.alert('Encrypt file mengalami masalah..');
+    window.alert('Enkripsi file mengalami masalah..');
     </script>");
   }
 }
