@@ -21,7 +21,6 @@ $role = $_SESSION['role'];
                         <th style="vertical-align:middle;">Ukuran Berkas</th>
                         <th style="vertical-align:middle;">Keterangan</th>
                         <th style="vertical-align:middle;">Waktu</th>
-                        <th style="vertical-align:middle;">Status</th>
                         <th style="vertical-align:middle;">Download</th>
                         <th style="vertical-align:middle;">Delete</th>
                     </tr>
@@ -46,23 +45,6 @@ $role = $_SESSION['role'];
                         Waktu enkripsi: <?php echo $data['durasi_proses_enkripsi'] == "" ? "-" : $data['durasi_proses_enkripsi'] . ' Detik'; ?><hr class="mb-1 mt-1">
                         Waktu dekripsi: <?php echo $data['durasi_proses_dekripsi'] == "" ? "-" : $data['durasi_proses_dekripsi'] . ' Detik'; ?>
                         </td>                        
-                        <td style="vertical-align:middle;" class="text-center">
-                        <?php 
-                        if ($data['status'] == 1) {
-                            echo '<span class="badge bg-success">
-                                <i class="fa fa-check"></i> Terenkripsi
-                            </span>';
-                        }elseif ($data['status'] == 2) {
-                            echo '<span class="badge bg-success">
-                            <i class="fa fa-check"></i> Terdekripsi
-                        </span>';
-                        }else {
-                            echo '<span class="badge bg-danger">
-                            <i class="fa fa-check"></i> Tidak Diketahui
-                        </span>';
-                        }
-                        ?>
-                        </td>
                         <td style="vertical-align:middle;">
                         Enkripsi: <a href='file_encrypt/<?= $data['file_name_finish'] ?>' class='btn btn-warning btn-sm' download><i class='fa fa-download'></i> Download</a>
                         <hr class="mt-1 mb-1">
