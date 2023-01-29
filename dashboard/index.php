@@ -1,18 +1,16 @@
 <?php
-session_start();
 include('../config.php');
 include('./template/header.php');
 if (empty($_SESSION['username'])) {
     header("location:../index.php");
 }
 $last = $_SESSION['username'];
+$role = $_SESSION['role'];
 $sqlupdate = "UPDATE users SET last_activity=now() WHERE username='$last'";
 $queryupdate = mysqli_query($connect, $sqlupdate);
-?>
 
-<?php
 $user = $_SESSION['username'];
-$query = mysqli_query($connect, "SELECT fullname,job_title,last_activity FROM users WHERE username='$user'");
+$query = mysqli_query($connect, "SELECT fullname,job_title,last_activity FROM users WHERE username='$user' LIMIT 1");
 $data = mysqli_fetch_array($query);
 ?>
 
@@ -46,16 +44,20 @@ $data = mysqli_fetch_array($query);
         <?php
         $query = mysqli_query($connect, "SELECT count(*) totaluser FROM users");
         $datauser = mysqli_fetch_array($query);
-        ?>
-
-        <?php
+        
+        if($role == 'admin'){
         $query = mysqli_query($connect, "SELECT count(*) totalencrypt FROM file WHERE status='1'");
         $dataencrypt = mysqli_fetch_array($query);
-        ?>
-
-        <?php
+        
         $query = mysqli_query($connect, "SELECT count(*) totaldecrypt FROM file WHERE status='2'");
         $datadecrypt = mysqli_fetch_array($query);
+        } else {
+        $query = mysqli_query($connect, "SELECT count(*) totalencrypt FROM file WHERE status='1' AND username = '$last'");
+        $dataencrypt = mysqli_fetch_array($query);
+        
+        $query = mysqli_query($connect, "SELECT count(*) totaldecrypt FROM file WHERE status='2' AND username = '$last'");
+        $datadecrypt = mysqli_fetch_array($query);
+        }
         ?>
 
 

@@ -1,6 +1,8 @@
 <?php 
 include('../config.php');
 include 'template/header.php'; 
+$username = $_SESSION['username'];
+$role = $_SESSION['role'];
 ?>
 
 <div class="card mt-3">
@@ -18,15 +20,20 @@ include 'template/header.php';
                         <th style="vertical-align:middle;">Nama Berkas Enkripsi</th>
                         <th style="vertical-align:middle;">Ukuran Berkas</th>
                         <th style="vertical-align:middle;">Keterangan</th>
-                        <th style="vertical-align:middle;">Waktu</th>                        
+                        <th style="vertical-align:middle;">Waktu</th>
                         <th style="vertical-align:middle;">Status</th>
+                        <th style="vertical-align:middle;">Download</th>
                         <th style="vertical-align:middle;">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     $no = 1;
+                    if($role == 'admin'){
                     $query = mysqli_query($connect, "SELECT * FROM file");
+                    } else {
+                    $query = mysqli_query($connect, "SELECT * FROM file WHERE username = '$username'");
+                    }
                     while ($data = mysqli_fetch_array($query)) { ?>
                 <tr>
                         <td class="text-center" style="vertical-align:middle;"><?php echo $no++; ?></td>
@@ -34,11 +41,28 @@ include 'template/header.php';
                         <td style="vertical-align:middle;"><?php echo $data['file_name_source']; ?></td>                        
                         <td style="vertical-align:middle;"><?php echo $data['file_name_finish']; ?></td>
                         <td style="vertical-align:middle;"><?php echo $data['file_size']; ?> KB</td>
-                        <td style="vertical-align:middle;"><?php echo $data['keterangan']; ?></td>
+                        <td style="vertical-align:middle;"><?php echo $data['keterangan']; ?></td>                        
                         <td style="vertical-align:middle;">
                         Waktu enkripsi: <?php echo $data['durasi_proses_enkripsi'] == "" ? "-" : $data['durasi_proses_enkripsi'] . ' Detik'; ?><hr class="mb-1 mt-1">
                         Waktu dekripsi: <?php echo $data['durasi_proses_dekripsi'] == "" ? "-" : $data['durasi_proses_dekripsi'] . ' Detik'; ?>
                         </td>                        
+                        <td style="vertical-align:middle;" class="text-center">
+                        <?php 
+                        if ($data['status'] == 1) {
+                            echo '<span class="badge bg-success">
+                                <i class="fa fa-check"></i> Terenkripsi
+                            </span>';
+                        }elseif ($data['status'] == 2) {
+                            echo '<span class="badge bg-success">
+                            <i class="fa fa-check"></i> Terdekripsi
+                        </span>';
+                        }else {
+                            echo '<span class="badge bg-danger">
+                            <i class="fa fa-check"></i> Tidak Diketahui
+                        </span>';
+                        }
+                        ?>
+                        </td>
                         <td style="vertical-align:middle;">
                         Enkripsi: <a href='file_encrypt/<?= $data['file_name_finish'] ?>' class='btn btn-warning btn-sm' download><i class='fa fa-download'></i> Download</a>
                         <hr class="mt-1 mb-1">
@@ -51,7 +75,7 @@ include 'template/header.php';
                         }
                         ?>
                          <td style="vertical-align:middle;">
-                            <a onClick="return confirm('Data ini akan di hapus.?')"
+                            <a onClick="return confirm('Data <?= $data['file_name_source'] ?> akan di hapus?')"
                                 href="delete.php.?id=<?php echo $data['id_file']; ?>" class="btn btn-danger btn-sm">
                                 <i class="fa fa-trash"></i> Delete
                             </a>

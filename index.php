@@ -1,4 +1,11 @@
-<?php include 'config.php'; ?>
+<?php 
+session_start();
+include 'config.php';
+
+if(isset($_SESSION['username'])){
+    header("location: dashboard/index.php");
+}
+?>
 
 <!DOCTYPE html>
 <html>

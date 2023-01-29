@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -12,6 +15,11 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .disabled{
+            pointer-events: none!important;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,6 +44,18 @@
                         </li>
                     </ul>
                 </li>
+                <?php if($_SESSION['role'] == 'admin'): ?>
+                <li class="active">
+                    <a href="#masterDataSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <span class="fa fa-database"></span> Master Data
+                    </a>
+                    <ul class="collapse list-unstyled" id="masterDataSubmenu">
+                        <li>
+                            <a href="mst-users.php"><i class="fa fa-users"></i> Users</a>
+                        </li>                        
+                    </ul>
+                </li>
+                <?php endif; ?>
                 <li><a href="history.php"><span class="fa fa-history"></span>Daftar Hasil</a></li>
                 <li><a href="bantuan.php"><span class="material-icons">help</span>Bantuan</a></li>
             </ul>

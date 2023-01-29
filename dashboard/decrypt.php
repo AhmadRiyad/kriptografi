@@ -1,5 +1,9 @@
-<?php include('../config.php');?>
-<?php include 'template/header.php'; ?>
+<?php 
+include('../config.php');
+include 'template/header.php'; 
+$username = $_SESSION['username'];
+$role = $_SESSION['role'];
+?>
 
 <div class="card mt-3">
     <div class="card-header">
@@ -21,7 +25,11 @@
                 <tbody>
                     <?php
                                 $i = 1;
-                                $query = mysqli_query($connect,"SELECT * FROM file where status ='1' order by tgl_upload desc");
+                                if($role == 'admin'){
+                                    $query = mysqli_query($connect,"SELECT * FROM file where status ='1' order by tgl_upload desc");
+                                } else {
+                                    $query = mysqli_query($connect,"SELECT * FROM file where status ='1' AND username = '$username' order by tgl_upload desc");
+                                }
                                 while ($data = mysqli_fetch_array($query)) { ?>
                     <tr>
                         <td style="vertical-align:middle;"><?php echo $i; ?></td>

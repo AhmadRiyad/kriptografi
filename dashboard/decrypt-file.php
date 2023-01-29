@@ -17,7 +17,7 @@
           ?>
                     <h3 align="center">Berkas Enkripsi <i style="color:blue"><?php echo $data2['file_name_finish'] ?></i>
                     </h3><br>
-                    <form class="form-horizontal" method="post" action="functions/decrypt-process.php">
+                    <form class="form-horizontal" id="form_save" method="post" action="functions/decrypt-process.php">
                         <div class="table-responsive">
                             <table class="table striped">
                                 <tr>
@@ -55,7 +55,7 @@
                         </div>
                             <div class="card-footer" >
                                  <div class="text-center ">
-                                 <a href="decrypt.php" class="btn btn-secondary btn-md">Kembali</a>
+                                 <a href="decrypt.php" class="btn btn-secondary btn-md btn-back">Kembali</a>
                                 <button type="submit" name="decrypt_now" class="btn btn-primary btn-md"><i class="fa fa-unlock-alt"></i> Dekripsi</button>
                             </div>
                     </form>
