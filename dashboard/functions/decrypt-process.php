@@ -34,8 +34,6 @@ if (mysqli_num_rows($sql) > 0) {
         $banyak = $banyak + 1;
     }
 
-    ini_set('max_execution_time', -1);
-    ini_set('memory_limit', -1);
     $start_time = microtime(true);
     for ($bawah = 0; $bawah < $banyak; $bawah++) {
 

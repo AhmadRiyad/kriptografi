@@ -59,8 +59,6 @@ if (isset($_POST['encrypt_now'])) {
   }
 
   if (is_uploaded_file($file_tmpname)) {
-    ini_set('max_execution_time', -1);
-    ini_set('memory_limit', -1);
     $aes = new AES($key);
     $start_time = microtime(true);
     for ($bawah = 0; $bawah < $banyak; $bawah++) {

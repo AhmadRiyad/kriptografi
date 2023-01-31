@@ -15,7 +15,7 @@ include 'template/header.php';
                         <label class="control-label" for="inputPassword"> Tanggal</label>
                         <div class="">
                             <input class="form-control" id="inputTgl" type="text" placeholder="Tanggal" name="datenow"
-                                value="<?php echo date("Y-m-d H:i:s"); ?>" readonly>
+                                value="<?php echo tanggal_indo(date('Y-m-d'),true); ?>" readonly>
                         </div>
                     </div>
                     <div class="form-group">
